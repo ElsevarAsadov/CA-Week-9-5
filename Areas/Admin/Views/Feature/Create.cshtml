@@ -1,0 +1,20 @@
+﻿@model WebApplication2.Areas.Admin.Models.Feature
+
+<div class="container w-100 h-100 p-3 d-flex justify-content-start align-items-center">
+  <form method="post" asp-controller="Feature" asp-action="Create">
+    <h1 class="display-1">Add New Service</h1>
+    <hr class="hr" />
+    <div class="mb-3">
+      <label asp-for="Title" class="form-label">Service Title</label>
+      <input asp-for="Title" id="title" class="form-control">
+      <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+      <label asp-for="Content" class="form-label">Service Content</label>
+      <input asp-for="Content" class="form-control">
+      <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary" data-placement="top">Submit</button>
+  </form>
+  
+</div>

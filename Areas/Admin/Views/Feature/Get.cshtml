@@ -1,0 +1,24 @@
+﻿@model Feature
+
+
+<div class="container w-100 h-100 p-3 d-flex justify-content-start align-items-center">
+    <form method="PUT">
+        <input type="hidden" name="id" value=@Model.Id/>
+        <h1 class="display-1">Add New Feature</h1>
+        <hr class="hr"/>
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">Feature Title</label>
+            <input asp-for="Title" id="title" class="form-control" value=@Model.Title>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Content" class="form-label"> Feature Content</label>
+            <input asp-for="Content" class="form-control" value=@Model.Content>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" data-placement="top">Update</button>
+    </form>
+  
+</div>
+
+

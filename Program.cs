@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WebApplication2.Data;
 using WebApplication2.DbContexts;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+builder.Services.AddDbContext<AdminDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnectionString"));
+});
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -35,7 +41,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name : "Admin",
-    pattern : "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    pattern : "{area:exists}/{controller=Feature}/{action=Index}/{id?}"
 );
 
 app.MapControllerRoute(

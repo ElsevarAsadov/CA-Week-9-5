@@ -1,0 +1,40 @@
+﻿@model List<Feature>
+
+<div class="container-fluid">
+    
+    <div class="d-flex justify-content-end m-3">
+        <a asp-action="Create" asp-controller="Feature">
+                <button class="btn btn-success">
+                    <i class="bi bi-plus"></i>
+                    Create New Service
+                </button>
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        @foreach (Feature feature in Model)
+        {
+            <tr>
+                <th scope="row">@feature.Id</th>
+                <td>@feature.Title</td>
+                <td>@feature.Content</td>
+                <td class="w-25">
+                    <button type="button" class="btn btn-warning text-white">Update</button>
+                    <button type="button" class="btn btn-danger text-white" onclick="deleteItem(@feature.Id)">Delete</button>
+                </td>
+            </tr>
+        }
+        
+        </tbody>
+    </table>
+    
+    
+</div>
